@@ -2,21 +2,18 @@
 #include <sstream>
 using namespace std;
 
-std::string problemSolution4(const std::string &macAddress) {
+std::string classifyMACAddressType(const std::string& macAddress) {
+    std::istringstream iss(macAddress);
+    std::string octet;
+    getline(iss, octet, ':');
+    int firstOctet;
+    std::stringstream(octet) >> std::hex >> firstOctet;
 
-    string mac;
-    stringstream ss(mac);
-    int a, b, c, d, e, f;
-
-    char colon;
-    ss >> hex >> a >> colon >> b >> colon >> c  >> colon >> d >> colon >> e >> colon >> f;
-
-        if (a == 0xFF && b == 0xFF && c == 0xFF && d == 0xFF && e == 0xFF && f == 0xFF) {
-        return "Broadcast" << endl;
-    } else if (a % 2 == 0) {
-        return "Unicast" << endl;
-    } else {
-        return "Multicast" << endl;
+    if (firstOctet % 2 == 0) {
+        return "Unicast";
+    } else if (firstOctet % 2 != 0 and firstOctet != 255) {
+        return "Multicast";
+    } else if (firstOctet == 255) {
+        return "Broadcast";
     }
-
 }
