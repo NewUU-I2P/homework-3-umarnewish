@@ -1,28 +1,26 @@
 float problemSolution5(float x, float y, char operation) {
-   float result;
-       double num1, num2;
-    char sign;
-        switch (sign)
-    {
+    float result;
+
+    switch (operation) {
         case '+':
-            return "Result: " << num1 + num2 << endl;
+            result = x + y;
             break;
         case '-':
-            return "Result: " << num1 - num2 << endl;
+            result = x - y;
             break;
         case '*':
-            return "Result: " << num1 * num2 << endl;
+            result = x * y;
             break;
         case '/':
-            if (num2 != 0) {
-                return "Result: " << num1 / num2 << endl;
+            if (y != 0) {
+                result = x / y;
             } else {
-                std::return "Error: Division by zero is undefined." << endl;
+                result = 0;
             }
             break;
         default:
-            return "Error: Invalid operation symbol.";
+            result = 0;
     }
 
-   return result;
+    return result;
 }
