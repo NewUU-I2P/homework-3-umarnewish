@@ -1,24 +1,20 @@
 #include <string>
 
 std::string problemSolution3(float height, char S) {
-
-
-
-        if (S == 'm' && height < 1.7)
+string classifyHeight(float height, char S) {
+    if (height < 1.7 and S == 'M') {
         return "Short";
-    else if (S == 'm' && height < 1.85)
+    } else if (height >= 1.70 and height < 1.85 and S == 'M') {
         return "Normal";
-    else if (S == 'm' && height >= 1.85)
+    } else if (height >= 1.85 and S == 'M') {
         return "Tall";
-    else if (S == 'f' && height < 1.6)
+    } else if (height < 1.6 and S == 'F') {
         return "Short";
-    else if (S == 'f' && height < 1.75)
+    } else if (height >= 1.6 and height < 1.75 and S == 'F') {
         return "Normal";
-   else if (S  == 'f' && height >= 1.75)
+    } else if (height >= 1.75 and S == 'F') {
         return "Tall";
+    }
+}
 
-    // write your code here
-
-    // use return to return your result
-    // make use of control flow statements
 }
