@@ -1,30 +1,20 @@
 float problemSolution1(float consumed_water) {
-    float cost;
+    float totalCost;
     
-    const double fixedAmount = 13;
-    const double firstThirty = 0.4;
-    const double nextTwenty = 0.12;
-    const double nextTen = 1.4;
-    const double additional = 1.5;
+    int fixedCost = 13;
+    // Your solution goes here
+    if (waterConsumed <= 30) {
+        totalCost = fixedCost + (waterConsumed * 0.4);
+    }
+    else if (waterConsumed > 30 && waterConsumed <= 50) {
+        totalCost = fixedCost + ((waterConsumed - 30) * 0.12) + (30 * 0.4);
+    }
+    else if (waterConsumed > 50 && waterConsumed <= 60) {
+        totalCost = fixedCost + ((waterConsumed - 50) * 1.4) + (30 * 0.4) + (20 * 0.12);
+    }
+    else if (waterConsumed > 60) {
+        totalCost = fixedCost + ((waterConsumed - 60) * 1.5) + (30 * 0.4) + (20 * 0.12) + (10 * 1.4);
+    }
+    return totalCost;
 
-    double consumption, totalAmount = 0.0;
-
-    if(consumption <= 30)
-    {
-        totalAmount = fixedAmount + 30 * firstThirty;
-    }
-    else if(consumption <= 50)
-    {
-        totalAmount = fixedAmount + 30 * firstThirty + (consumption - 30) * nextTwenty;
-    }
-    else if(consumption <= 60)
-    {
-        totalAmount = fixedAmount + 30 * firstThirty + 20 * nextTwenty + (consumption - 50) * nextTen;
-    }
-    else
-    {
-        totalAmount = fixedAmount + 30 * firstThirty + 20 * nextTwenty + 10 * nextTen + (consumption - 60) * additional;
-    }
-
-    return cost;
 }
